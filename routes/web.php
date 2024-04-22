@@ -21,8 +21,8 @@ Route::get('/', function () {
 Route::get('/data', function () {
     return view('data.data');
 });
-Route::get('/p', function () {
-    return view('pegawai.addPegawai');
+Route::get('/d', function () {
+    return view('dokumen.addDokumen');
 });
 
 // Pegawai

@@ -13,7 +13,7 @@ class DokumenController extends Controller
      */
     public function index()
     {
-        $dokumen = Dokumen::select(
+        $pegawai = Dokumen::select(
             'dokumens.id',
             'dokumens.jenis',
             'dokumens.file',
@@ -26,8 +26,7 @@ class DokumenController extends Controller
         )
         ->join('pegawais as pegawai', 'pegawai.id', '=', 'dokumens.pegawai_id')
         ->get();
-        dd($dokumen);
-        return view('dokumen.dokumen', compact('dokumen', 'pegawai'));
+        return view('dokumen.dokumen', compact('pegawai'));
     }
 
     /**
@@ -35,7 +34,7 @@ class DokumenController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
