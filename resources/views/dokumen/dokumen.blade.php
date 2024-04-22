@@ -1,25 +1,9 @@
 @extends('master')
-@section('title', 'Dashboard')
-@section('styles')
-				<style>
-								/* CSS untuk elemen info-box */
-								.info-box {
-												transition: transform 0.3s;
-												/* Efek transisi saat hover */
-								}
-
-								/* CSS untuk elemen info-box ketika dihover */
-								.info-box:hover {
-												transform: scale(1.05);
-												/* Memperbesar elemen saat dihover */
-								}
-				</style>
-
-@endsection
+@section('title', 'Dokumen')
 @section('content')
 				<div class="card">
 								<div class="card-header">
-												<h3 class="card-title">Data Pergeseran Anggaran</h3>
+												<h3 class="card-title">Dokumen Pegawai</h3>
 								</div>
 								<!-- /.card-header -->
 								<div class="card-body">

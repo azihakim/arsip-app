@@ -81,13 +81,13 @@
 																				<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
 																								data-accordion="false">
 																								<li class="nav-item">
-																												<a href="{{ url('/data') }}" class="nav-link">
+																												<a href="{{ url('/dokumen') }}" class="nav-link">
 																																<i class="nav-icon fas fa-tachometer-alt"></i>
-																																<p>Data</p>
+																																<p>Dokumen</p>
 																												</a>
 																								</li>
 																								<li class="nav-item">
-																												<a href="" class="nav-link">
+																												<a href="{{ url('/pegawai') }}" class="nav-link">
 																																<i class="nav-icon fas fa-user-alt"></i>
 																																<p>Pegawai</p>
 																												</a>
@@ -101,6 +101,21 @@
 
 								<!-- Content Wrapper. Contains page content -->
 								<div class="content-wrapper">
+												<!-- Content Header (Page header) -->
+												<div class="content-header">
+																<div class="container-fluid">
+																				<div class="row mb-2">
+																								<div class="col-sm-6">
+																												<h1 class="m-0">@yield('title')</h1>
+																								</div>
+																								<!-- /.col -->
+																				</div>
+																				<!-- /.row -->
+																</div>
+																<!-- /.container-fluid -->
+												</div>
+												<!-- /.content-header -->
+
 												<!-- Main content -->
 												<section class="content">
 																<div class="container-fluid">@yield('content')</div>

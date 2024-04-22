@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DokumenController;
+use App\Http\Controllers\PegawaiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +21,14 @@ Route::get('/', function () {
 Route::get('/data', function () {
     return view('data.data');
 });
+Route::get('/p', function () {
+    return view('pegawai.addPegawai');
+});
+
+// Pegawai
+Route::resource('/pegawai', PegawaiController::class);
+
+// Dokumen
+Route::resource('/dokumen', DokumenController::class);
+
+
