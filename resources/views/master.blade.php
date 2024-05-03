@@ -4,7 +4,7 @@
 <head>
 				<meta charset="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<title>ARSIP</title>
+				<title>Rekap</title>
 
 				<!-- Google Font: Source Sans Pro -->
 				<link rel="stylesheet"
@@ -71,7 +71,7 @@
 												<a href="index3.html" class="brand-link">
 																<img src="{{ asset('vendors/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
 																				class="brand-image img-circle elevation-3" style="opacity: 0.8" />
-																<span class="brand-text font-weight-light">ARSIP</span>
+																<span class="brand-text font-weight-light">Rekap</span>
 												</a>
 
 												<!-- Sidebar -->
@@ -81,15 +81,21 @@
 																				<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
 																								data-accordion="false">
 																								<li class="nav-item">
-																												<a href="{{ url('/dokumen') }}" class="nav-link">
+																												<a href="{{ url('/') }}" class="nav-link">
 																																<i class="nav-icon fas fa-tachometer-alt"></i>
-																																<p>Dokumen</p>
+																																<p>Home</p>
 																												</a>
 																								</li>
 																								<li class="nav-item">
 																												<a href="{{ url('/pegawai') }}" class="nav-link">
 																																<i class="nav-icon fas fa-user-alt"></i>
-																																<p>Pegawai</p>
+																																<p>User</p>
+																												</a>
+																								</li>
+																								<li class="nav-item">
+																												<a href="{{ route('data.index') }}" class="nav-link">
+																																<i class="nav-icon fas fa-car-alt"></i>
+																																<p>BeritaAcara_2024</p>
 																												</a>
 																								</li>
 																				</ul>

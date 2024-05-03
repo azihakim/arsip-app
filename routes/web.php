@@ -1,7 +1,7 @@
 <?php
-
+use App\Http\Controllers\DataController;
 use App\Http\Controllers\DokumenController;
-use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,20 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('master');
-});
-Route::get('/data', function () {
-    return view('data.data');
-});
-Route::get('/d', function () {
-    return view('dokumen.addDokumen');
-});
-
-// Pegawai
-Route::resource('/pegawai', PegawaiController::class);
-
 // Dokumen
+
 Route::resource('/dokumen', DokumenController::class);
 
+Route::resource('data', DataController::class);
+
+Route::resource('/', HomeController::class);
 
