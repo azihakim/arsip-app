@@ -2,6 +2,7 @@
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PenggunaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,5 +22,7 @@ Route::resource('/dokumen', DokumenController::class);
 
 Route::resource('data', DataController::class);
 
-Route::resource('/', HomeController::class);
+Route::get('/', [HomeController::class, 'index']);
+Route::resource('home', HomeController::class);
 
+Route::resource('pengguna', PenggunaController::class);

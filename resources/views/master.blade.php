@@ -56,10 +56,8 @@
 												<!-- Right navbar links -->
 												<ul class="navbar-nav ml-auto">
 																<li class="nav-item">
-																				<a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#"
-																								role="button">
-																								<i class="fas fa-th-large"></i>
-																				</a>
+																				<button type="button" class="btn btn-block btn-outline-danger">Log Out</button>
+
 																</li>
 												</ul>
 								</nav>
@@ -81,13 +79,13 @@
 																				<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
 																								data-accordion="false">
 																								<li class="nav-item">
-																												<a href="{{ url('/') }}" class="nav-link">
+																												<a href="{{ route('home.index') }}" class="nav-link">
 																																<i class="nav-icon fas fa-tachometer-alt"></i>
 																																<p>Home</p>
 																												</a>
 																								</li>
 																								<li class="nav-item">
-																												<a href="{{ url('/pegawai') }}" class="nav-link">
+																												<a href="{{ route('pengguna.index') }}" class="nav-link">
 																																<i class="nav-icon fas fa-user-alt"></i>
 																																<p>User</p>
 																												</a>
@@ -336,6 +334,24 @@
 																"autoWidth": false,
 																"buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
 												}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+												$('#example2').DataTable({
+																"paging": true,
+																"lengthChange": false,
+																"searching": false,
+																"ordering": true,
+																"info": true,
+																"autoWidth": false,
+																"responsive": true,
+												});
+								});
+				</script>
+				<script>
+								$(function() {
+												$("#exampleY").DataTable({
+																"responsive": true,
+																"lengthChange": false,
+																"autoWidth": false,
+												}).buttons().container().appendTo('#exampleY_wrapper .col-md-6:eq(0)');
 												$('#example2').DataTable({
 																"paging": true,
 																"lengthChange": false,
