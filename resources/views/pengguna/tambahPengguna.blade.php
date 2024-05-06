@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('master')
 @section('title', 'Tambah Pengguna')
 @section('content')
 				<div class="row">
@@ -28,13 +28,9 @@
 																								</div>
 
 																								<div class="form-group">
-																												<label for="biro">Biro</label>
-																												<select class="form-control" style="width: 100%;" id="biro" name="biro">
-																																<option value="">Pilih Biro</option>
-																																@foreach ($biro as $option)
-																																				<option value="{{ $option }}">{{ $option }}</option>
-																																@endforeach
-																												</select>
+																												<label for="biro">NIP</label>
+																												<input type="text" name="nip" class="form-control @error('name') is-invalid @enderror"
+																																required>
 																								</div>
 
 																								<div class="form-group">
@@ -49,11 +45,7 @@
 
 																								<div class="form-group">
 																												<label for="password">Password</label>
-																												<input type="password" name="password"
-																																class="form-control @error('password') is-invalid @enderror" required>
-																												@error('password')
-																																<div class="invalid-feedback">{{ $message }}</div>
-																												@enderror
+																												<input type="text" name="password" class="form-control">
 																								</div>
 
 																								<button type="submit" class="btn btn-block btn-info float-right">Simpan</button>

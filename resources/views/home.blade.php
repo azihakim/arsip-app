@@ -3,7 +3,7 @@
 				<div class="row">
 								<div class="col-md-3 col-sm-6 col-12">
 												<div class="info-box">
-																<span class="info-box-icon bg-info">100</span>
+																<span class="info-box-icon bg-info">{{ $count }}</span>
 																<div class="info-box-content">
 																				<span class="info-box-text">
 																								<h4>Jumlah BA</h4>
@@ -14,7 +14,7 @@
 								</div>
 								<div class="col-md-3 col-sm-6 col-12">
 												<div class="info-box">
-																<span class="info-box-icon bg-warning">2</span>
+																<span class="info-box-icon bg-warning">{{ $countHmp }}</span>
 																<div class="info-box-content">
 																				<span class="info-box-text">
 																								<h4>Habis Masa <br> Pinjam</h4>

@@ -112,7 +112,7 @@
 												var yyyy = date.getFullYear();
 												var mm = String(date.getMonth() + 1).padStart(2, '0');
 												var dd = String(date.getDate()).padStart(2, '0');
-												var endDate = dd + '-' + mm + '-' + yyyy;
+												var endDate = yyyy + '-' + mm + '-' + dd;
 
 												// Set nilai input habis_masa_pinjam dengan tanggal yang dihitung
 												document.getElementById('habis_masa_pinjam').value = endDate;

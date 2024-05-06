@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('tgl_ba');
             $table->string('no_bpkb');
             $table->string('no_ba');
-            $table->string('habis_masa_pinjam');
+            $table->date('habis_masa_pinjam');
             $table->timestamps();
         });
     }
