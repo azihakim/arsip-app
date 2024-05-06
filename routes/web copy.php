@@ -1,6 +1,4 @@
 <?php
-
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\HomeController;
@@ -18,17 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Dokumen
 
-Route::middleware('auth')->group(function () {
-    
-    Route::resource('/dokumen', DokumenController::class);
+Route::resource('/dokumen', DokumenController::class);
 
-    Route::resource('data', DataController::class);
+Route::resource('data', DataController::class);
 
-    Route::get('/', [HomeController::class, 'index']);
-    Route::resource('home', HomeController::class);
+Route::get('/', [HomeController::class, 'index']);
+Route::resource('home', HomeController::class);
 
-    Route::resource('pengguna', PenggunaController::class);
-});
-
-require __DIR__.'/auth.php';
+Route::resource('pengguna', PenggunaController::class);

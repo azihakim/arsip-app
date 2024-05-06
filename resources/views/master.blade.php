@@ -56,7 +56,15 @@
 												<!-- Right navbar links -->
 												<ul class="navbar-nav ml-auto">
 																<li class="nav-item">
-																				<button type="button" class="btn btn-block btn-outline-danger">Log Out</button>
+																				<form method="POST" action="{{ route('logout') }}">
+																								@csrf
+
+																								<x-dropdown-link class="nav-link" :href="route('logout')"
+																												onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+																												<button type="button" class="btn btn-block btn-outline-danger">Log Out</button>
+																								</x-dropdown-link>
+																				</form>
 
 																</li>
 												</ul>
