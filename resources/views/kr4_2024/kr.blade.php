@@ -30,6 +30,7 @@
 																								<th>No BPKB</th>
 																								<th>No Berita Acara</th>
 																								<th>Habis Masa Pinjam</th>
+																								<th>Dokumen BA</th>
 																				</tr>
 																</thead>
 																<tbody>
@@ -69,6 +70,7 @@
 																												<td>{{ $item->no_bpkb }}</td>
 																												<td>{{ $item->no_ba }}</td>
 																												<td>{{ $item->habis_masa_pinjam }}</td>
+																												<td><a href="{{ asset('storage/dokumen/' . $item->dok_ba) }}" download>Download</a></td>
 																								</tr>
 																				@endforeach
 																</tbody>
@@ -87,6 +89,7 @@
 																								<th>No BPKB</th>
 																								<th>No Berita Acara</th>
 																								<th>Habis Masa Pinjam</th>
+																								<th>Dokumen BA</th>Dokumen BA
 																				</tr>
 																</tfoot>
 												</table>

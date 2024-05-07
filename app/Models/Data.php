@@ -20,5 +20,6 @@ class Data extends Model
         'no_bpkb',
         'no_ba',
         'habis_masa_pinjam',
+        'dok_ba'
     ];
 }

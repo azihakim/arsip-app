@@ -87,6 +87,12 @@
 																																								class="form-control" placeholder="Tanggal Habis Masa Pinjam" readonly>
 																																</div>
 																												</div>
+																												<div class="col-3">
+																																<div class="form-group">
+																																				<label for="dok_ba">Dokumen BA</label>
+																																				<input type="file" name="dok_ba" class="form-control">
+																																</div>
+																												</div>
 
 																								</div>
 																				</div>

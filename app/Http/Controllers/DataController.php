@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Data;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DataController extends Controller
 {
@@ -22,19 +23,26 @@ class DataController extends Controller
     {
         // Validasi data
         $request->validate([
-            'jenis' => 'required',
-            'nopol' => 'required',
-            'rangka' => 'required',
-            'mesin' => 'required',
-            'tahun_pembuatan' => 'required',
-            'pemakai' => 'required',
-            'skpd' => 'required',
-            'tgl_ba' => 'required',
-            'no_bpkb' => 'required',
-            'no_ba' => 'required',
-            'habis_masa_pinjam' => 'required',
+            'jenis' => 'required|string',
+            'nopol' => 'required|string',
+            'rangka' => 'required|string',
+            'mesin' => 'required|string',
+            'tahun_pembuatan' => 'required|string',
+            'pemakai' => 'required|string',
+            'skpd' => 'required|string',
+            'tgl_ba' => 'required|date',
+            'no_bpkb' => 'required|string',
+            'no_ba' => 'required|string',
+            'habis_masa_pinjam' => 'required|date',
+            'dok_ba' => 'required|file', // Validasi file dokumen BA
         ]);
 
+        // Proses upload dokumen BA
+        if ($request->hasFile('dok_ba')) {
+            $dok_ba = $request->file('dok_ba');
+            $dok_ba_name = time() . '_' . 'Dokumen BA.pdf' ;
+            $dok_ba->storeAs('public/dokumen', $dok_ba_name);
+        }
         // Simpan data ke dalam database
         Data::create([
             'jenis' => $request->jenis,
@@ -48,10 +56,11 @@ class DataController extends Controller
             'no_bpkb' => $request->no_bpkb,
             'no_ba' => $request->no_ba,
             'habis_masa_pinjam' => $request->habis_masa_pinjam,
+            'dok_ba' => $dok_ba_name, // Simpan nama file dokumen BA jika diunggah
         ]);
 
         // Redirect ke halaman yang sesuai (misalnya, halaman sukses)
-        return redirect()->route('data.index')->with('success', 'Data berhasil disimpan!');
+        return redirect()->route('data.index')->with('success', 'Data berhasil disimpan.');
     }
 
     // Fungsi untuk menampilkan form edit
@@ -66,31 +75,61 @@ class DataController extends Controller
     {
         // Validasi data
         $request->validate([
-            'jenis' => 'required',
-            'nopol' => 'required',
-            'rangka' => 'required',
-            'mesin' => 'required',
-            'tahun_pembuatan' => 'required',
-            'pemakai' => 'required',
-            'skpd' => 'required',
-            'tgl_ba' => 'required',
-            'no_bpkb' => 'required',
-            'no_ba' => 'required',
-            'habis_masa_pinjam' => 'required',
+            'jenis' => 'required|string',
+            'nopol' => 'required|string',
+            'rangka' => 'required|string',
+            'mesin' => 'required|string',
+            'tahun_pembuatan' => 'required|string',
+            'pemakai' => 'required|string',
+            'skpd' => 'required|string',
+            'tgl_ba' => 'required|date',
+            'no_bpkb' => 'required|string',
+            'no_ba' => 'required|string',
+            'habis_masa_pinjam' => 'required|date',
         ]);
 
-        // Update data ke dalam database
+        // Cari data yang akan diupdate
         $data = Data::findOrFail($id);
-        $data->update($request->all());
 
-        // Redirect ke halaman yang sesuai (misalnya, halaman sukses)
-        return redirect()->route('data.index')->with('success', 'Data berhasil diupdate!');
+        // Proses upload dokumen BA jika ada perubahan
+        if ($request->hasFile('dok_ba')) {
+            $dok_ba = $request->file('dok_ba');
+            $dok_ba_name = time() . '_' . 'Dokumen BA.pdf';
+            $dok_ba->storeAs('public/dokumen', $dok_ba_name);
+            $data->dok_ba = $dok_ba_name;
+        }
+
+        // Update data
+        $data->update([
+            'jenis' => $request->jenis,
+            'nopol' => $request->nopol,
+            'rangka' => $request->rangka,
+            'mesin' => $request->mesin,
+            'tahun_pembuatan' => $request->tahun_pembuatan,
+            'pemakai' => $request->pemakai,
+            'skpd' => $request->skpd,
+            'tgl_ba' => $request->tgl_ba,
+            'no_bpkb' => $request->no_bpkb,
+            'no_ba' => $request->no_ba,
+            'habis_masa_pinjam' => $request->habis_masa_pinjam,
+        ]);
+
+        // Redirect ke halaman yang sesuai (misalnya, halaman detail)
+        return redirect()->route('data.index')->with('success', 'Data berhasil diperbarui.');
     }
 
     // Fungsi untuk menghapus data
     public function destroy($id)
     {
+        // Cari data yang akan dihapus
         $data = Data::findOrFail($id);
+
+        // Hapus file dokumen BA dari penyimpanan jika ada
+        if ($data->dok_ba) {
+            Storage::delete('public/dokumen/' . $data->dok_ba);
+        }
+
+        // Hapus data dari database
         $data->delete();
 
         // Redirect ke halaman yang sesuai (misalnya, halaman sukses)
