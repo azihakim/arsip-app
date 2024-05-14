@@ -50,12 +50,11 @@ class DokumenController extends Controller
         $nip = $request->nip;
         $dokmen = new Dokumen();
         $dokmen->jenis = $request->jenis;
-        $dokmen->pegawai_id = $request->pegawai_id;
-
         $ext = $request->file->getClientOriginalExtension();
         $file = "Dokumen-".$dokmen->jenis. "-" . $nip .".".$ext;
         $request->file->storeAs('public/dokumen', $file);
         $dokmen->file = $file;
+        $dokmen->pegawai_id = $request->pegawai_id;
         $dokmen->save();
 
         return redirect()->route('dokumen.index')

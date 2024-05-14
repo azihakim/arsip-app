@@ -27,6 +27,10 @@
 																																				<label>NIP</label>
 																																				<input disabled name="nip" type="text" class="form-control"
 																																								value="{{ $pegawai->nip }}">
+																																				<input name="nip" type="hidden" class="form-control"
+																																								value="{{ $pegawai->nip }}">
+																																				<input name="pegawai_id" type="text" class="form-control"
+																																								value="{{ $pegawai->id }}">
 																																</div>
 																												</div>
 																												<div class="col-3">
