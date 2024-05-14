@@ -4,7 +4,7 @@
 <head>
 				<meta charset="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<title>Rekap</title>
+				<title>ARSIP</title>
 
 				<!-- Google Font: Source Sans Pro -->
 				<link rel="stylesheet"
@@ -56,16 +56,10 @@
 												<!-- Right navbar links -->
 												<ul class="navbar-nav ml-auto">
 																<li class="nav-item">
-																				<form method="POST" action="{{ route('logout') }}">
-																								@csrf
-
-																								<x-dropdown-link class="nav-link" :href="route('logout')"
-																												onclick="event.preventDefault();
-                                    this.closest('form').submit();">
-																												<button type="button" class="btn btn-block btn-outline-danger">Log Out</button>
-																								</x-dropdown-link>
-																				</form>
-
+																				<a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#"
+																								role="button">
+																								<i class="fas fa-th-large"></i>
+																				</a>
 																</li>
 												</ul>
 								</nav>
@@ -77,7 +71,7 @@
 												<a href="index3.html" class="brand-link">
 																<img src="{{ asset('vendors/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
 																				class="brand-image img-circle elevation-3" style="opacity: 0.8" />
-																<span class="brand-text font-weight-light">Rekap</span>
+																<span class="brand-text font-weight-light">ARSIP</span>
 												</a>
 
 												<!-- Sidebar -->
@@ -87,21 +81,15 @@
 																				<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
 																								data-accordion="false">
 																								<li class="nav-item">
-																												<a href="{{ route('home.index') }}" class="nav-link">
+																												<a href="{{ url('/dokumen') }}" class="nav-link">
 																																<i class="nav-icon fas fa-tachometer-alt"></i>
-																																<p>Home</p>
+																																<p>Dokumen</p>
 																												</a>
 																								</li>
 																								<li class="nav-item">
-																												<a href="{{ route('pengguna.index') }}" class="nav-link">
+																												<a href="{{ url('/pegawai') }}" class="nav-link">
 																																<i class="nav-icon fas fa-user-alt"></i>
-																																<p>User</p>
-																												</a>
-																								</li>
-																								<li class="nav-item">
-																												<a href="{{ route('data.index') }}" class="nav-link">
-																																<i class="nav-icon fas fa-car-alt"></i>
-																																<p>BeritaAcara_2024</p>
+																																<p>Pegawai</p>
 																												</a>
 																								</li>
 																				</ul>
@@ -342,24 +330,6 @@
 																"autoWidth": false,
 																"buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
 												}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-												$('#example2').DataTable({
-																"paging": true,
-																"lengthChange": false,
-																"searching": false,
-																"ordering": true,
-																"info": true,
-																"autoWidth": false,
-																"responsive": true,
-												});
-								});
-				</script>
-				<script>
-								$(function() {
-												$("#exampleY").DataTable({
-																"responsive": true,
-																"lengthChange": false,
-																"autoWidth": false,
-												}).buttons().container().appendTo('#exampleY_wrapper .col-md-6:eq(0)');
 												$('#example2').DataTable({
 																"paging": true,
 																"lengthChange": false,
