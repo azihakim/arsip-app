@@ -4,6 +4,7 @@
 				<div class="card">
 								<div class="card-header">
 												<h3 class="card-title">Data Pegawai</h3>
+												<a href="{{ url('pegawai/create') }}" class="btn btn-primary float-right">Tambah Pegawai</a>
 								</div>
 								<!-- /.card-header -->
 								<div class="card-body">
