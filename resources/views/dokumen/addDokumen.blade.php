@@ -16,31 +16,30 @@
 																												<div class="col-3">
 																																<div class="form-group">
 																																				<label>Nama</label>
-																																				<input disabled name="nama" type="text" class="form-control"
-																																								value="{{ $pegawai->nama }}">
-																																				<input type="hidden" name="pegawai_id" value={{ $pegawai->id }}>
+																																				<input name="nama" type="text" class="form-control"
+																																								placeholder="Masukkan Nama Pegawai">
 																																</div>
 																												</div>
 
 																												<div class="col-3">
 																																<div class="form-group">
 																																				<label>NIP</label>
-																																				<input disabled name="nip" type="text" class="form-control"
-																																								value="{{ $pegawai->nip }}">
+																																				<input name="nip" type="text" class="form-control"
+																																								placeholder="Masukkan NIP Pegawai">
 																																</div>
 																												</div>
 																												<div class="col-3">
 																																<div class="form-group">
 																																				<label>Golongan</label>
-																																				<input disabled name="golongan" type="text" class="form-control"
-																																								value="{{ $pegawai->golongan }}">
+																																				<input name="golongan" type="text" class="form-control"
+																																								placeholder="Masukkan Golongan Pegawai">
 																																</div>
 																												</div>
 																												<div class="col-3">
 																																<div class="form-group">
 																																				<label>Jabatan</label>
-																																				<input disabled name="jabatan" type="text" class="form-control"
-																																								value="{{ $pegawai->jabatan }}">
+																																				<input name="jabatan" type="text" class="form-control"
+																																								placeholder="Masukkan Jabatan Pegawai">
 																																</div>
 																												</div>
 																								</div>
@@ -49,19 +48,14 @@
 																												<div class="col-3">
 																																<div class="form-group">
 																																				<label>Jenis Dokumen</label>
-																																				<select name="jenis" class="form-control select2" style="width: 100%;">
-																																								<option>Pilih Jenis Dokumen</option>
-																																								<option value="SK Pangkat Terakhir">SK Pangkat Terakhir</option>
-																																								<option value="SK CPNS">SK CPNS</option>
-																																								<option value="SK PNS">SK PNS</option>
-																																								<option value="Surat Pernyataan Melaksanakan Tugas">Surat Pernyataan Melaksanakan
-																																												Tugas</option>
-																																								<option value="Surat Pernyataan Menduduki Jabatan">Surat Pernyataan Menduduki
-																																												Jabatan</option>
-																																								<option value="Surat Pernyataan Pelantikan">Surat Pernyataan Pelantikan</option>
-																																								<option value="SKP 2(Dua) Tahun terakhir">SKP 2(Dua) Tahun terakhir</option>
-																																								<option value="Ijazah Terakhir">Ijazah Terakhir</option>
-																																								<option value="Surat Uraian Tugas">Surat Uraian Tugas</option>
+																																				<select class="form-control select2" style="width: 100%;">
+																																								<option selected="selected">Alabama</option>
+																																								<option>Alaska</option>
+																																								<option>California</option>
+																																								<option>Delaware</option>
+																																								<option>Tennessee</option>
+																																								<option>Texas</option>
+																																								<option>Washington</option>
 																																				</select>
 																																</div>
 																												</div>

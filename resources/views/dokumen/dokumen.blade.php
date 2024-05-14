@@ -15,6 +15,7 @@
 																								<th>Golongan</th>
 																								<th>Jabatan</th>
 																								<th>Status</th>
+																								<th>Foto</th>
 																								<th>Aksi</th>
 																				</tr>
 																</thead>
@@ -26,15 +27,20 @@
 																												<td>{{ $item->golongan }}</td>
 																												<td>{{ $item->jabatan }}</td>
 																												<td>{{ $item->status }}</td>
+																												<td><img src="{{ asset('storage/foto/' . $item->foto) }}" alt="Foto Pegawai" width="100"></td>
 																												<td>
 																																<div class="row">
 																																				<div class= "col-6">
-																																								<a class="btn btn-block btn-outline-info"
-																																												href="{{ url('dokumen/create/' . $item->id) }}">Tambah</a>
+																																								<a class="btn btn-block btn-outline-warning"
+																																												href="{{ url('pegawai/' . $item->id . '/edit') }}">Edit</a>
 																																				</div>
 																																				<div class= "col-6">
-																																								<a class="btn btn-block btn-outline-success"
-																																												href="{{ url('dokumen/' . $item->id . '/edit') }}">Dokumen</a>
+																																								<form id="deleteForm{{ $item->id }}" action="{{ url('pegawai/' . $item->id) }} "
+																																												method="POST">
+																																												@csrf
+																																												<input type="hidden" name="_method" value="DELETE">
+																																												<button class="btn btn-block btn-outline-danger delete-btn">Hapus</button>
+																																								</form>
 																																				</div>
 																																</div>
 																												</td>
@@ -48,6 +54,7 @@
 																								<th>Golongan</th>
 																								<th>Jabatan</th>
 																								<th>Status</th>
+																								<th>Foto</th>
 																								<th>Aksi</th>
 																				</tr>
 																</tfoot>

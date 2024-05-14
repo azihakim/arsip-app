@@ -30,8 +30,5 @@ Route::resource('/pegawai', PegawaiController::class);
 
 // Dokumen
 Route::resource('/dokumen', DokumenController::class);
-Route::get('dokumen/create/{id}', [DokumenController::class, 'create'])->name('dokumen.create');
-Route::match(['put', 'patch'], 'dokumen/update/{id}', [DokumenController::class, 'update'])->name('dokumen.update');
-
 
 

@@ -22,7 +22,7 @@ class PegawaiController extends Controller
      */
     public function create()
     {
-        return view('pegawai.addPegawai');
+        //
     }
 
     /**
@@ -100,11 +100,11 @@ class PegawaiController extends Controller
      */
     public function destroy($id)
     {
-        $pegawai = Pegawai::find($id);
-// dd($pegawai);
+        $pegawai = Pegawai::findOrFail($id);
+
         // Hapus foto jika ada
         if ($pegawai->foto) {
-            Storage::delete('storage/foto/'.$pegawai->foto);
+            Storage::delete('public/foto/'.$pegawai->foto);
         }
 
         // Hapus data pegawai
