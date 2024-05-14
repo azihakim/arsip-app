@@ -4,6 +4,7 @@
 				<div class="card">
 								<div class="card-header">
 												<h3 class="card-title">Data Pegawai</h3>
+												<a href="{{ url('pegawai/create') }}" class="btn btn-primary float-right">Tambah Pegawai</a>
 								</div>
 								<!-- /.card-header -->
 								<div class="card-body">
@@ -34,12 +35,13 @@
 																																								<a class="btn btn-block btn-outline-warning"
 																																												href="{{ url('pegawai/' . $item->id . '/edit') }}">Edit</a>
 																																				</div>
-																																				<div class= "col-6">
-																																								<form id="deleteForm{{ $item->id }}" action="{{ url('pegawai/' . $item->id) }} "
+																																				<div class="col-6">
+																																								<form id="deleteForm{{ $item->id }}" action="{{ url('pegawai/' . $item->id) }}"
 																																												method="POST">
 																																												@csrf
-																																												<input type="hidden" name="_method" value="DELETE">
-																																												<button class="btn btn-block btn-outline-danger delete-btn">Hapus</button>
+																																												@method('DELETE')
+																																												<button class="btn btn-block btn-outline-danger delete-btn"
+																																																data-id="{{ $item->id }}" type="button">Hapus</button>
 																																								</form>
 																																				</div>
 																																</div>

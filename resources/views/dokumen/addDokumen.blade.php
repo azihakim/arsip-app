@@ -16,30 +16,31 @@
 																												<div class="col-3">
 																																<div class="form-group">
 																																				<label>Nama</label>
-																																				<input name="nama" type="text" class="form-control"
-																																								placeholder="Masukkan Nama Pegawai">
+																																				<input disabled name="nama" type="text" class="form-control"
+																																								value="{{ $pegawai->nama }}">
+																																				<input type="hidden" name="pegawai_id" value={{ $pegawai->id }}>
 																																</div>
 																												</div>
 
 																												<div class="col-3">
 																																<div class="form-group">
 																																				<label>NIP</label>
-																																				<input name="nip" type="text" class="form-control"
-																																								placeholder="Masukkan NIP Pegawai">
+																																				<input disabled name="nip" type="text" class="form-control"
+																																								value="{{ $pegawai->nip }}">
 																																</div>
 																												</div>
 																												<div class="col-3">
 																																<div class="form-group">
 																																				<label>Golongan</label>
-																																				<input name="golongan" type="text" class="form-control"
-																																								placeholder="Masukkan Golongan Pegawai">
+																																				<input disabled name="golongan" type="text" class="form-control"
+																																								value="{{ $pegawai->golongan }}">
 																																</div>
 																												</div>
 																												<div class="col-3">
 																																<div class="form-group">
 																																				<label>Jabatan</label>
-																																				<input name="jabatan" type="text" class="form-control"
-																																								placeholder="Masukkan Jabatan Pegawai">
+																																				<input disabled name="jabatan" type="text" class="form-control"
+																																								value="{{ $pegawai->jabatan }}">
 																																</div>
 																												</div>
 																								</div>
@@ -48,14 +49,19 @@
 																												<div class="col-3">
 																																<div class="form-group">
 																																				<label>Jenis Dokumen</label>
-																																				<select class="form-control select2" style="width: 100%;">
-																																								<option selected="selected">Alabama</option>
-																																								<option>Alaska</option>
-																																								<option>California</option>
-																																								<option>Delaware</option>
-																																								<option>Tennessee</option>
-																																								<option>Texas</option>
-																																								<option>Washington</option>
+																																				<select name="jenis" class="form-control select2" style="width: 100%;">
+																																								<option>Pilih Jenis Dokumen</option>
+																																								<option value="SK Pangkat Terakhir">SK Pangkat Terakhir</option>
+																																								<option value="SK CPNS">SK CPNS</option>
+																																								<option value="SK PNS">SK PNS</option>
+																																								<option value="Surat Pernyataan Melaksanakan Tugas">Surat Pernyataan Melaksanakan
+																																												Tugas</option>
+																																								<option value="Surat Pernyataan Menduduki Jabatan">Surat Pernyataan Menduduki
+																																												Jabatan</option>
+																																								<option value="Surat Pernyataan Pelantikan">Surat Pernyataan Pelantikan</option>
+																																								<option value="SKP 2(Dua) Tahun terakhir">SKP 2(Dua) Tahun terakhir</option>
+																																								<option value="Ijazah Terakhir">Ijazah Terakhir</option>
+																																								<option value="Surat Uraian Tugas">Surat Uraian Tugas</option>
 																																				</select>
 																																</div>
 																												</div>
