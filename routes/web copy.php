@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\PegawaiController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
-Route::middleware('auth')->group(function () {
 Route::get('/', function () {
     return view('master');
 });
@@ -34,9 +30,8 @@ Route::resource('/pegawai', PegawaiController::class);
 
 // Dokumen
 Route::resource('/dokumen', DokumenController::class);
-Route::get('/', [DokumenController::class, 'index'])->name('dokumen.index');
 Route::get('dokumen/create/{id}', [DokumenController::class, 'create'])->name('dokumen.create');
 Route::match(['put', 'patch'], 'dokumen/update/{id}', [DokumenController::class, 'update'])->name('dokumen.update');
-});
 
-require __DIR__.'/auth.php';
+
+

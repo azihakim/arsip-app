@@ -4,7 +4,7 @@
 <head>
 				<meta charset="utf-8">
 				<meta name="viewport" content="width=device-width, initial-scale=1">
-				<title>Rekap</title>
+				<title>Arsip</title>
 
 				<!-- Google Font: Source Sans Pro -->
 				<link rel="stylesheet"
@@ -27,7 +27,7 @@
 				<div class="register-box">
 								<div class="card card-outline card-primary">
 												<div class="card-header text-center">
-																<h2 style="margin-bottom: 1px"><strong>REKAP</strong></h2>
+																<h2 style="margin-bottom: 1px"><strong>ARSIP</strong></h2>
 												</div>
 												<div class="card-body">
 																<p class="login-box-msg">Login</p>

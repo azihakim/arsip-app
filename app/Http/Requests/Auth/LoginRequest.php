@@ -43,10 +43,10 @@ class LoginRequest extends FormRequest
 
         if (! Auth::attempt($this->only('username', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
+
             throw ValidationException::withMessages([
                 'username' => trans('auth.failed'),
             ]);
-
         }
 
         RateLimiter::clear($this->throttleKey());
@@ -80,6 +80,6 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->string('username')).'|'.$this->ip());
+        return Str::transliterate(Str::lower($this->input('username')).'|'.$this->ip());
     }
 }

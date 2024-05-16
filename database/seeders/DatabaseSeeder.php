@@ -32,18 +32,5 @@ class DatabaseSeeder extends Seeder
         ]);
 
         
-        Data::create([
-            'jenis' => 'Jenis data',
-            'nopol' => 'Nomor Polisi',
-            'rangka' => 'Nomor Rangka',
-            'mesin' => 'Nomor Mesin',
-            'tahun_pembuatan' => 'Tahun Pembuatan',
-            'pemakai' => 'Pemakai',
-            'skpd' => 'SKPD',
-            'tgl_ba' => Carbon::now()->subYears(6), // Mengurangkan 6 tahun dari tanggal saat ini
-            'no_bpkb' => 'Nomor BPKB',
-            'no_ba' => 'Nomor BA',
-            'habis_masa_pinjam' => Carbon::now()->subDays(30), // Contoh: tambahkan 30 hari dari tanggal saat ini
-        ]);
     }
 }
