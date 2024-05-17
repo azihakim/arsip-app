@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dokumen;
 use App\Models\Pegawai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -100,18 +101,58 @@ class PegawaiController extends Controller
      */
     public function destroy($id)
     {
-        $pegawai = Pegawai::findOrFail($id);
+        // Ambil data pegawai dengan dokumennya
+       $pegawai = Pegawai::find($id);
 
-        // Hapus foto jika ada
-        if ($pegawai->foto) {
-            Storage::delete('public/foto/'.$pegawai->foto);
+        if ($pegawai) {
+            $dokumen = Dokumen::select(
+                'dokumens.id',
+                'dokumens.jenis',
+                'dokumens.file',
+                'pegawai.nama',
+                'pegawai.nip',
+                'pegawai.jabatan',
+                'pegawai.golongan',
+                'pegawai.status',
+                'pegawai.foto'
+            )
+            ->join('pegawais as pegawai', 'pegawai.id', '=', 'dokumens.pegawai_id')
+            ->where('pegawai.id', $id)
+            ->get();
+
+            foreach ($dokumen as $doc) {
+                $doc->delete();
+            }
+            foreach ($dokumen as $doc) {
+                // Hapus file dokumen
+                Storage::delete('public/dokumen/'.$doc->file);
+            }
+
+            // Hapus pegawai
+            $pegawai->delete();
+
+            return redirect()->route('pegawai.index')
+                ->with('success', 'Pegawai berhasil dihapus.');
+        } else {
+            return redirect()->route('pegawai.index')
+                ->with('error', 'Pegawai tidak ditemukan.');
         }
 
-        // Hapus data pegawai
-        $pegawai->delete();
+        
 
-        return redirect()->route('pegawai.index')
-            ->with('success', 'Pegawai berhasil dihapus.');
+        Storage::delete('public/foto/'.$pegawai->foto);
+        
+
+        // Hapus data pegawai beserta dokumennya
+        if ($pegawai) {
+            $pegawai->delete();
+            return redirect()->route('pegawai.index')
+                ->with('success', 'Pegawai berhasil dihapus.');
+        } else {
+            return redirect()->route('pegawai.index')
+                ->with('error', 'Pegawai tidak ditemukan.');
+        }
     }
+
 
 }

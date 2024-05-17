@@ -68,8 +68,19 @@
 																																								class="btn btn-outline-primary btn-block"><i class="fa fa-download"></i></a>
 																																</div>
 																												</div>
+																												<div class="col-1">
+																																<div class="form-group">
+																																				<label>Hapus</label>
+																																				<form id="deleteForm{{ $item->id }}" action="{{ url('dokumen/' . $item->id) }} "
+																																								method="POST">
+																																								@csrf
+																																								<input type="hidden" name="_method" value="DELETE">
+																																								<button class="btn btn-block btn-outline-danger delete-btn">Hapus</button>
+																																				</form>
+																																</div>
+																												</div>
 
-																												<div class="col-6">
+																												<div class="col-5">
 																																<form action="{{ url('dokumen/update/' . $item->id) }}" method="POST"
 																																				enctype="multipart/form-data">
 																																				@csrf

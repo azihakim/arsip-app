@@ -124,8 +124,14 @@ class DokumenController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Dokumen $dokumen)
+    public function destroy($id)
     {
-        //
+        $dokumen = Dokumen::find($id);
+        if ($dokumen) {
+            Storage::delete('public/dokumen/'.$dokumen->file);
+            $dokumen->delete();
+            return redirect()->back()
+                ->with('success', 'Dokumen Berhasil dihapus.');
+        }
     }
 }
